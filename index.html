@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Face-Mask Detection As a Service</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="vendor/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="assets/css/main.css" rel="stylesheet">
+	<link href="assets/css/alertify.core.css" rel="stylesheet">
+	<link href="assets/css/alertify.bootstrap.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Face-Mask Detection</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about.html">About</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h1 class="mt-5">Academic Project for the Vision & Cognitive Services Course</h1>
+
+				<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+				<hr>
+				<p class="lead">Try it out with one of the following images...</p>
+
+				<div class="row">
+					<div class="col-md-3">
+						<img class="clickable-image shadow rounded" src="assets/images/yes.jpg" onclick="send_url(this.src)" />
+					</div>
+					<div class="col-md-3">
+						<img class="clickable-image shadow rounded" src="assets/images/no.jpg" onclick="send_url(this.src)" />
+					</div>
+					<div class="col-md-3">
+						<img class="clickable-image shadow rounded" src="assets/images/maybe.jpg" onclick="send_url(this.src)" />
+					</div>
+					<div class="col-md-3">
+						<img class="clickable-image shadow rounded" src="assets/images/mixed.jpg" onclick="send_url(this.src)" />
+					</div>
+				</div>
+
+				<div style="margin-top: 20px;"></div>
+				<hr>
+				
+				<p class="lead">...or upload an image yourself...</p>
+
+				<form id="upload-form" action="" method="POST" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6 custom-file mb-3">
+							<input required type="file" class="custom-file-input" id="customFile" name="file" accept="image/*">
+							<label id="file-input-name" class="custom-file-label" for="customFile">Choose file...</label>
+						</div>
+						<div class="col-md-3"></div>
+
+					</div>
+
+					<button type="submit" class="btn btn-primary mt-1 shadow" aria-label="Left Align">
+						<i class="fa fa-upload" style="margin-right: 5px;"></i>Submit
+					</button>
+				</form>
+
+				<hr>
+
+				<p class="lead">...alternatively, you can provide the URL of an image.</p>
+
+				<form id="url-form" action="" method="POST" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6 mb-3">
+							<input required type="text" class="form-control" id="url-input" name="url" placeholder="https://somwhere/something.jpg" style="width: 100%; text-align:center;"/>
+						</div>
+						<div class="col-md-3"></div>
+
+					</div>
+
+					<button type="submit" onclick="send_url('custom')" class="btn btn-primary mt-1 shadow" aria-label="Left Align">
+						<i class="fa fa-link" style="margin-right: 5px;"></i>Submit
+					</button>
+				</form>
+				<hr>
+
+				<div id="result-section" style="display: none;">
+				<h3>Processed image</h3>
+					<div class="row">
+						<div class="col-md-12">
+							<img class="resize-img" id="processed-img" src="#" />
+						</div>
+					</div>
+					<hr>
+				</div>
+
+				<div id="faces-result-section" style="display: none;">
+				<h3>Detected faces</h3>
+					<div class="row" id="card-collector">
+					
+						<!-- cards go here (dynamically) -->
+
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Page Footer  -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<span class="text-muted" style="text-align: center">Made with <img src="assets/images/brain.png" style="height:20px; width: 20px"; title="AI" alt="AI"> by <i>Eugen Saraci</i></span>
+				</div>
+				<div class="col-lg-6 col-md-12">
+					<span class="text-muted" style="text-align: center">eugen.saraci<code>[at]</code>studenti<code>[dot]</code>unipd<code>[dot]</code>it</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/alertify.min.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

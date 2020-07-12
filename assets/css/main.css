@@ -1,0 +1,42 @@
+.clickable-image {
+	cursor: pointer;
+	margin-top: 15px;
+	filter: brightness(70%);
+}
+
+.clickable-image:hover {
+	filter:brightness(100%);
+}
+
+
+.footer {
+	background-color: #ececec !important;
+	width: 100%;
+	line-height: 60px;
+	margin-top: 15px;
+}
+
+
+/* resize image but keep aspect ration */
+.resize-img {
+  	display: block;
+	max-width:960px;
+  	max-height:720px;
+	width: auto;
+  	height: auto;
+    margin:auto;
+}
+
+.card-container {
+	margin-top:20px;
+}
+
+.card {
+	width: 100%;
+}
+
+
+/* dashed border on <hr> element */
+hr {
+	border-top: 2px dashed #ececec;
+}
