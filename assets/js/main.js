@@ -1,12 +1,10 @@
 // TODO: 
 //       - prevent multiple clicks by showing a spinner
 //       - about page
-//       - footer layout
-//       - alertify position    
 // 
 
 //const API_BASE = "http://localhost:8080"
-const API_BASE = "https://vcs-backend.herokuapp.com"
+const API_BASE = "http://34.107.54.175"
 
 $(document).ready(function (e) {
 
