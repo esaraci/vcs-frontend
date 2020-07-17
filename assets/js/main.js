@@ -1,8 +1,3 @@
-// TODO: 
-//       - prevent multiple clicks by showing a spinner
-//       - about page
-// 
-
 //const API_BASE = "http://localhost:8080"
 const API_BASE = "http://34.107.54.175"
 
